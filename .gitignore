@@ -1,0 +1,19 @@
+# Ignorar carpetas de dependencias de Node.js
+node_modules/
+
+# Ignorar archivos de variables de entorno
+.env
+
+# Archivos de logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.eslintcache
+
+# Archivos de compilación de Vite
+/frontend/dist
+
+# Directorios de OS
+.DS_Store
+Thumbs.db

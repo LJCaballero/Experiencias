@@ -1,4 +1,4 @@
-import getPool from "../database/getPool.js";
+import getPool from "../../database/getPool.js";
 import bcrypt from "bcrypt";
 import "dotenv/config";
 
@@ -50,7 +50,6 @@ const crearAdminFijo = async (req, res, next) => {
         role: adminRole,
       },
     });
-
   } catch (error) {
     console.error(
       "Error al crear el usuario administrador fijo:",

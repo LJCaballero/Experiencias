@@ -22,7 +22,7 @@ const getPool = async () => {
             });
 
         const BDconnection = await pool.getConnection();
-        BDconnection.release(); 
+        
         console.log('Pool de conexiones MySQL creado exitosamente');
 
         } return pool;

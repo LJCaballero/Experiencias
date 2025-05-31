@@ -54,7 +54,6 @@ const initDB = async () => {
             price DECIMAL(10, 2) NOT NULL,
             minCapacity INT DEFAULT 1,
             totalCapacity INT NOT NULL,
-            availableCapacity INT NOT NULL,
             adminId INT NOT NULL,
             active BOOLEAN DEFAULT true,
             confirmed BOOLEAN DEFAULT false,

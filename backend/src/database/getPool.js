@@ -21,7 +21,7 @@ const getPool = async () => {
                 timezone: "Z",
             });
 
-        const BDconnection = await pool.getConnection();
+        
         
         console.log('Pool de conexiones MySQL creado exitosamente');
 

@@ -17,8 +17,8 @@ const insertExperienceService = async (
 
   const [result] = await pool.query(
     `
-        INSERT INTO experiences (title, description, locality, image, experienceDate, price, minCapacity, totalCapacity, adminId, active, confirmed)
-        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, true, false)
+        INSERT INTO experiences (title, description, locality, image, experienceDate, price, minCapacity, totalCapacity, adminId,)
+        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)
         `,
     [
       id,

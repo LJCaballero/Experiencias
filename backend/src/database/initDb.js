@@ -19,7 +19,7 @@ const initDB = async () => {
     console.log("Borrando tablas si existen...");
     
     await pool.query(
-      "DROP TABLE IF EXISTS experience_ratings, reservations, experience_photos, experiences, users"
+      "DROP TABLE IF EXISTS reservations, experience_photos, experiences, users"
     );
 
     console.log("Creando tablas...");
@@ -63,43 +63,41 @@ const initDB = async () => {
         )
     `);
 
-    // Tabla de Reservas (reservations)
+    // Tabla de Reservas con Valoraciones (reservations)
     await pool.query(`
-        CREATE TABLE IF NOT EXISTS reservations (
+       CREATE TABLE IF NOT EXISTS reservations (
             id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
             userId INT NOT NULL,
             experienceId INT NOT NULL,
             reservationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+            experienceDate DATETIME NOT NULL,
             status ENUM('pending', 'confirmed', 'cancelled', 'completed') DEFAULT 'pending',
-            FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE,
-            FOREIGN KEY (experienceId) REFERENCES experiences(id) ON DELETE CASCADE,
-            UNIQUE (userId, experienceId)
-        )
-    `);
-
-    // Tabla de Valoraciones de Experiencias (experience_ratings)
-    await pool.query(`
-        CREATE TABLE IF NOT EXISTS experience_ratings (
-            id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-            value TINYINT UNSIGNED NOT NULL,
+            -- Campos de valoración (opcionales, solo cuando status = 'completed')
+            rating TINYINT UNSIGNED DEFAULT NULL,
             comment TEXT DEFAULT NULL,
-            userId INT NOT NULL,
-            experienceId INT NOT NULL,
-            createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+            ratingDate DATETIME DEFAULT NULL,
             FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE,
             FOREIGN KEY (experienceId) REFERENCES experiences(id) ON DELETE CASCADE,
-            UNIQUE (userId, experienceId)
+            UNIQUE (userId, experienceId),
+            -- Constraints para asegurar que solo se puede valorar experiencias completadas
+            CONSTRAINT chk_rating_only_when_completed 
+                CHECK (rating IS NULL OR status = 'completed'),
+            CONSTRAINT chk_rating_range 
+                CHECK (rating IS NULL OR (rating >= 1 AND rating <= 5))
         )
     `);
 
+
+    //LOS APARTADOS DE CONSTRAINT SON PARA QUE SE PUEDA VALORAR LA EXPERIENCIA SI ESTA COMPLETADA. SI NO LO VEIS CLARO DECIDLO
+
+    //ADEMAS HE PUESTO EN QUE DIA SE HA HECHO LA RESERVA Y PARA CUANDO --> 
+        //  reservationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+           // experienceDate DATETIME NOT NULL,
     // Insertar usuario administrador
+    
     const adminPassword = process.env.ADMIN_PASSWORD;
     
-    
-    
     const hashedPassword = await bcrypt.hash(adminPassword, 10);
-    
-
     
     await pool.query(`
         INSERT INTO users (email, password, role, active)

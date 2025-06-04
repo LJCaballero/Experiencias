@@ -1,5 +1,5 @@
 // backend/src/services/experiences/selectAllExperiencesService.js
-import getPool from "../../db/getPool.js";
+import getPool from "../../database/getPool.js";
 
 const selectAllExperiencesService = async () => {
   const pool = await getPool();

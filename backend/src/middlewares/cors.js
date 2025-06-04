@@ -1,4 +1,4 @@
-const cors = require('cors');
+import cors from 'cors';
 
 const corsOptions = {
     origin: 'http://localhost:3000', 
@@ -6,4 +6,4 @@ const corsOptions = {
     allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-module.exports = cors(corsOptions);
+export default cors(corsOptions);

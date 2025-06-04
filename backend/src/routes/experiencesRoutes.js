@@ -1,8 +1,10 @@
-import { Router } from "express";
-import newExperienceController from "../controllers/experiences/newExperienceController.js";
+// backend/src/routes/experiencesRoutes.js
+import express from "express";
+import listExperiencesController from "../controllers/experiences/listExperiencesController.js";
 
-const router = Router();
+const router = express.Router();
 
-router.post("/experiences", newExperienceController);
+// GET /experiences
+router.get("/", listExperiencesController);
 
 export default router;

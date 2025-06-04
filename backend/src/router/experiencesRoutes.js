@@ -3,6 +3,6 @@ import newExperienceController from "../controllers/experiences/newExperienceCon
 
 const router = Router();
 
-router.post()
+router.post("/experiences", newExperienceController);
 
 export default router;

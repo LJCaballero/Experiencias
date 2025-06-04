@@ -65,12 +65,13 @@ const initDB = async () => {
 
     // Tabla de Reservas con Valoraciones (reservations)
     await pool.query(`
-       CREATE TABLE IF NOT EXISTS reservations (
+        CREATE TABLE IF NOT EXISTS reservations (
             id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
             userId INT NOT NULL,
             experienceId INT NOT NULL,
             reservationDate DATETIME DEFAULT CURRENT_TIMESTAMP,
             experienceDate DATETIME NOT NULL,
+            numberOfPeople INT UNSIGNED NOT NULL,
             status ENUM('pending', 'confirmed', 'cancelled', 'completed') DEFAULT 'pending',
             -- Campos de valoración (opcionales, solo cuando status = 'completed')
             rating TINYINT UNSIGNED DEFAULT NULL,

@@ -1,6 +1,8 @@
 import express from "express";
 import experiencesRoutes from "./routes/experiencesRoutes.js";
 import jwt from "jsonwebtoken";
+import experiencesRoutes from "./routes/experiencesRoutes.js";
+app.use("/experiencias", experiencesRoutes);
 
 // Importar Middlewares
 import verificarToken from "./middlewares/authMiddleware.js";

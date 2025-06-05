@@ -46,7 +46,7 @@ const newExperienceController = async (req, res, next) => {
 
     //Obtencion del ID del admin del token JWT
 
-    const adminId = req.userAuth.id;
+    const adminId = req.user.id;
 
     const experienceId = await insertExperienceService(
       title,

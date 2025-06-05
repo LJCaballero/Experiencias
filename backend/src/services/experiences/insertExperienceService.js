@@ -17,11 +17,10 @@ const insertExperienceService = async (
 
   const [result] = await pool.query(
     `
-        INSERT INTO experiences (title, description, locality, image, experienceDate, price, minCapacity, totalCapacity, adminId,)
+        INSERT INTO experiences (title, description, locality, image, experienceDate, price, minCapacity, totalCapacity, adminId)
         VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)
         `,
     [
-      id,
       title,
       description,
       locality,
@@ -39,4 +38,4 @@ const insertExperienceService = async (
   return insertId;
 };
 
-export default insertExperienceService;
+export default insertExperienceService

@@ -6,7 +6,7 @@ const listExperiencesController = async (req, res, next) => {
     const experiences = await selectAllExperiencesService();
     res.status(200).json(experiences);
   } catch (error) {
-    next(error); // Si tienes middleware de manejo de errores
+    next(error); 
   }
 };
 

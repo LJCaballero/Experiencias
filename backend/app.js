@@ -8,8 +8,8 @@ import router from "./src/routes/index.js";
 
 // Importar middlewares específicos
 // import upload from "./src/middlewares/uploadFiles.js";  // Comentado por ahora
-import notFoundHandler from "./src/middlewares/notFoundHandler.js";
-import errorHandler from "./src/middlewares/errorHandler.js";
+import notFoundHandler from "./src/errors/notFoundHandler.js";
+import errorHandler from "./src/errors/errorHandler.js";
 import auth from "./src/middlewares/authMiddleware.js";
 
 // Inicializar aplicación Express

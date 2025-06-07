@@ -1,7 +1,7 @@
 
 // Endpoint para hacer la reserva de las experiencias
 import express from 'express';
-import pool from '../../database/initDb.js'; 
+import getPool from '../../database/getPool.js';
 
 const router = express.Router();
 
@@ -17,7 +17,8 @@ router.post('/', async (req, res) => {
     }
 
     try {
-        const [result] = await pool.execute(
+        const pool = await getPool();
+        const [result] = await pool.query(
             'INSERT INTO reservations (experienceId, userId, experienceDate, numberOfPeople) VALUES (?, ?, ?, ?)',
             [experienceID, userID, experienceDate, numberOfPeople]
         );

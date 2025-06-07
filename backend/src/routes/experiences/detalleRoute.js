@@ -1,6 +1,6 @@
 // Endpoint detalle de la experiencia
 import express from "express";
-import pool from "../database/initDb.js";
+import getPool from "../../database/getPool.js";
 
 const router = express.Router();
 
@@ -13,7 +13,9 @@ router.get("/:id", async (req, res) => {
 
     try {
         const idNum = Number(id);
-        const [rows] = await pool.execute(
+        const pool = await getPool();
+
+        const [rows] = await pool.query(
             "SELECT * FROM experiences WHERE id = ?",
             [idNum]
         );

@@ -1,8 +1,8 @@
 // backend/src/routes/experiencesRoutes.js
 import express from "express";
-import listExperiencesController from "../controllers/experiences/listExperiencesController.js";
-import newExperienceController from "../controllers/experiences/newExperienceController.js";
-import auth from "../middlewares/authMiddleware.js";
+import listExperiencesController from "../../controllers/experiences/listExperiencesController.js";
+import newExperienceController from "../../controllers/experiences/newExperienceController.js";
+import auth from "../../middlewares/authMiddleware.js";
 
 const router = express.Router();
 

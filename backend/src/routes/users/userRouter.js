@@ -5,8 +5,9 @@ import {
   validateUser,
   changePassword,
   getUserInfo,
-} from "../controllers/users/authController.js";
-import { auth } from "../middlewares/authMiddleware.js";
+} from "../../controllers/users/authController.js";
+
+import { auth } from "../../middlewares/authMiddleware.js";
 
 const router = express.Router();
 

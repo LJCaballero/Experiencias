@@ -1,7 +1,7 @@
 
 // Endpoint para hacer la reserva de las experiencias
 import express from 'express';
-import pool from '../database/initDb.js'; 
+import pool from '../../database/initDb.js'; 
 
 const router = express.Router();
 

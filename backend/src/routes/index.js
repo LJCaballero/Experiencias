@@ -1,12 +1,13 @@
 import { Router } from "express";
-import userRouter from "./userRouter.js";
-import adminRoute from "./adminRoute.js";
-import experiencesRouter from "./experiencesRoutes.js";
+import userRouter from "./users/userRouter.js";
+import adminRoute from "./users/adminRoute.js";
+import experiencesRouter from "./experiences/experiencesRoutes.js";
+import detalleRoute from "./experiences/detalleRoute.js"
 
 const router = Router();
 
 router.use("/users", userRouter);
 router.use("/admin", adminRoute);
-router.use("/experiences", experiencesRouter);
+router.use("/experiences", experiencesRouter, detalleRoute);
 
 export default router;

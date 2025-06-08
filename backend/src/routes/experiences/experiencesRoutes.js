@@ -5,6 +5,7 @@ import newExperienceController from "../../controllers/experiences/newExperience
 import auth from "../../middlewares/authMiddleware.js";
 import getExperienceByIdController from "../../controllers/experiences/getExperienceByIdController.js";
 import createReservationController from "../../controllers/users/createReservationController.js";
+import updateExperienceStatusController from "../../controllers/experiences/updateExperienceStatusController.js";
 
 const router = express.Router();
 
@@ -19,6 +20,9 @@ router.get("/:id", getExperienceByIdController);
 
 // POST /experiences/:id/reservas - Crear reserva
 router.post("/:id/reservas", auth, createReservationController);
+
+// PATCH /experiences/:id/status - Actualizar estado de experiencia (solo admin)
+router.patch("/:id/status", auth, updateExperienceStatusController);
 
 
 

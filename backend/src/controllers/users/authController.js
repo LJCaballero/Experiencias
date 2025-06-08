@@ -71,7 +71,8 @@ export const loginUser = async (req, res, next) => {
         id: user.id,
         email: user.email,
         firstName: user.firstName,
-        lastName: user.lastName
+        lastName: user.lastName,
+        role: user.role
       },
       process.env.JWT_SECRET,
       { expiresIn: "7d" }

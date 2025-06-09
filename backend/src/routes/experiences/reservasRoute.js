@@ -4,21 +4,14 @@ import express from "express";
 import getPool from "../../database/getPool.js";
 import auth from "../../middlewares/authMiddleware.js";
 
-import {
-  crearReserva,
-  listarReservasUsuario,
-  cancelarReserva,
-} from "../../controllers/reservas/controlReservas.js";
-
-
 const router = express.Router();
 
-router.post("/", async (req, res) => {
-  const { experienceID, userID, experienceDate, numberOfPeople } = req.body;
+router.post("/", auth, async (req, res) => {
+  const { experienceID, experienceDate, numberOfPeople } = req.body;
+  const userID = req.user.id; // Sacamos el userID del token
 
   if (
     !experienceID ||
-    !userID ||
     !experienceDate ||
     numberOfPeople === undefined
   ) {
@@ -33,14 +26,20 @@ router.post("/", async (req, res) => {
     });
   }
 
+  const dateObj = new Date(experienceDate);
+  if (isNaN(dateObj.getTime()) || dateObj < new Date()) {
+    return res.status(400).json({
+      error: "La fecha de la experiencia no es válida o es anterior a hoy",
+    });
+  }
 
-    try {
-        const pool = await getPool();
-        const [result] = await pool.query(
-            'INSERT INTO reservations (experienceId, userId, experienceDate, numberOfPeople) VALUES (?, ?, ?, ?)',
-            [experienceID, userID, experienceDate, numberOfPeople]
-        );
+  try {
+    const pool = await getPool();
 
+    const [result] = await pool.query(
+      'INSERT INTO reservations (experienceId, userId, experienceDate, numberOfPeople) VALUES (?, ?, ?, ?)',
+      [experienceID, userID, experienceDate, numberOfPeople]
+    );
 
     const nuevaReserva = {
       id: result.insertId,

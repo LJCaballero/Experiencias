@@ -1,9 +1,9 @@
 import { Router } from "express";
 
-import userRouter from "./userRouter.js";
-import adminRoute from "./adminRoute.js";
-import experiencesRouter from "./experiencesRoutes.js";
-import reservasRouter from "./reservasRoute.js";
+import userRouter from "./users/userRouter.js";
+import adminRoute from "./users/adminRoute.js";
+import experiencesRouter from "./experiences/experiencesRoutes.js";
+import reservasRouter from "./experiences/reservasRoute.js";
 
 
 const router = Router();

@@ -1,14 +1,14 @@
 // Endpoint para hacer la reserva de las experiencias
 
 import express from "express";
-import getPool from '../database/getPool.js';
-import authMiddleware from "../middlewares/authMiddleware.js";
+import getPool from "../../database/getPool.js";
+import auth from "../../middlewares/authMiddleware.js";
 
 import {
   crearReserva,
   listarReservasUsuario,
   cancelarReserva,
-} from "../controllers/reservas/ControlReservas.js";
+} from "../../controllers/reservas/controlReservas.js";
 
 
 const router = express.Router();

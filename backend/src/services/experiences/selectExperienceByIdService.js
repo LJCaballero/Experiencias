@@ -1,28 +1,19 @@
-import getPool from "../../database/getPool.js";
+import getPool from '../../database/getPool.js';
 
 const selectExperienceByIdService = async (experienceId) => {
-  const pool = await getPool();
+    try {
+        const pool = await getPool();
+        const [rows] = await pool.query(
+            `SELECT * FROM experiences WHERE id = ?`,
+            [experienceId]
+        );
 
-  //Obtenemos la info de la experiencia
-
-  const [experience] = await pool.query(
-    `
-        SELECT e.id, e.title, e.description, e.locality, e.image, e.experienceDate, e.price, e.minCapacity, e.totalCapacity, e.active, e.confirmed, e.createdAt,
-        u.id as adminId 
-        FROM experiences e
-        INNER JOIN users u ON e.adminId = u.id
-        WHERE e.id=?
-        GROUP BY e.id 
-        
-        `,
-    [experienceId]
-  );
-  // GROUP BY e.id  -- para datos que se puedan repetir
-
-  //Posibilidad de crear una tabla para las fotos de la experiencia
-
-  //Devuelveme la experiencia y si no existe null
-  return experience[0] || null;
+        // Si no se encuentra la experiencia, devuelve null o undefined para que el controlador lo maneje
+        return rows.length > 0 ? rows[0] : null;
+    } catch (error) {
+        console.error('Error en selectExperienceByIdService:', error);
+        throw error; // Relanza el error para que el controlador lo capture
+    }
 };
 
 export default selectExperienceByIdService;

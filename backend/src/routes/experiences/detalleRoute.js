@@ -1,11 +1,10 @@
-// Endpoint detalle de la experiencia
+
 import express from "express";
 import getPool from "../../database/getPool.js";
 
 const router = express.Router();
 
-router.get("/:id", async (req, res) => {
-    const { id } = req.params;
+router.get("/:id", getExperienceByIdController);
 
     if (!Number.isInteger(Number(id)) || Number(id) <= 0) {
         return res.status(400).json({ error: "ID inválido" });
@@ -31,6 +30,6 @@ router.get("/:id", async (req, res) => {
         .status(500)
         .json({ error: "Error al obtener el detalle de la experiencia" });
     }
-});
+
 
 export default router;

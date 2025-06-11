@@ -7,6 +7,8 @@ import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 // Importa cualquier otra página que tengas o vayas a crear
+import RecoverPassword from './pages/RecoverPassword.jsx';
+import ValidateUserPage from './pages/ValidateUserPage.jsx';
 // import ExperienceDetailPage from './pages/ExperienceDetailPage';
 // import NotFoundPage from './pages/NotFoundPage';
 

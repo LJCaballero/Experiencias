@@ -1,12 +1,12 @@
 // frontend/src/App.jsx
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
 
 // Importa tus páginas
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-// Importa cualquier otra página que tengas o vayas a crear
 import RecoverPassword from './pages/RecoverPassword.jsx';
 import ValidateUserPage from './pages/ValidateUserPage.jsx';
 // import ExperienceDetailPage from './pages/ExperienceDetailPage';
@@ -21,7 +21,7 @@ function App() {
         {/* Link crea enlaces de navegación sin recargar la página */}
         <Link to="/" style={{ marginRight: '15px' }}>Inicio</Link>
         <Link to="/login" style={{ marginRight: '15px' }}>Iniciar Sesión</Link>
-        <Link to="/register">Registrarse</Link>
+        <Link to="/register" style={{ marginRight: '15px' }}>Registrarse</Link>
         {/* Puedes añadir más enlaces aquí, por ejemplo: */}
         {/* <Link to="/experiencias" style={{ marginRight: '15px' }}>Experiencias</Link> */}
       </nav>
@@ -32,6 +32,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/recover-password" element={<RecoverPassword />} />
+        <Route path="/validate/:token" element={<ValidateUserPage />} />
 
         {/* Ejemplo de una ruta con un parámetro (para una experiencia específica) */}
         {/* <Route path="/experiences/:id" element={<ExperienceDetailPage />} /> */}
@@ -43,4 +45,10 @@ function App() {
   );
 }
 
-export default App;
+export default function RootApp() {
+  return (
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  );
+}

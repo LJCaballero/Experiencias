@@ -58,6 +58,9 @@ const LoginPage = () => {
       <p>
         ¿No tienes una cuenta? <Link to="/register">Regístrate aquí</Link>
       </p>
+      <p>
+        <Link to="/recover-password">¿Olvidaste tu contraseña?</Link>
+      </p>
     </div>
   );
 };

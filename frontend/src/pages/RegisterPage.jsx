@@ -50,7 +50,7 @@ const RegisterPage = () => {
           formDataToSend.append('avatar', formData.avatar);
         }
 
-        const response = await fetch('http://localhost:3000/api/v1/users/register', {
+        const response = await fetch('http://localhost:3001/api/v1/users/register', {
           method: 'POST',
           body: formDataToSend,
         });

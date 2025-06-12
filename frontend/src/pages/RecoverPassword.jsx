@@ -16,7 +16,7 @@ const RecoverPassword = () => {
         setSubmitted(false);
 
         try {
-            const response = await axios.post('http://localhost:3000/api/recover-password', { email });
+            const response = await axios.post('http://localhost:3001/api/recover-password', { email });
             setSubmitted(true);
         } catch (err) {
             setError(err.response?.data?.message || 'Error al enviar el correo de recuperación');

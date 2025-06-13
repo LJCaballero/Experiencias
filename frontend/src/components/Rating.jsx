@@ -1,74 +1,49 @@
+
 import React, { useState } from 'react';
+import './Rating.css'; 
 
 const Rating = ({ 
   initialRating = 0, 
   maxStars = 5, 
-  onRatingChange, 
+  onRatingChange,
   readOnly = false,
   size = 'medium' 
 }) => {
   const [rating, setRating] = useState(initialRating);
-  const [hover, setHover] = useState(0);
 
-  const handleClick = (value) => {
+  const handleClick = (starNumber) => {
     if (readOnly) return;
-    setRating(value);
+    setRating(starNumber);
     if (onRatingChange) {
-      onRatingChange(value);
+      onRatingChange(starNumber);
     }
-  };
-  const handleMouseEnter = (value) => {
-    if (readOnly) return;
-    setHover(value);
-  };
-
-  const handleMouseLeave = () => {
-    if (readOnly) return;
-    setHover(0);
-  };
-
-  const getStarSize = () => {
-    switch (size) {
-      case 'small': return '16px';
-      case 'large': return '32px';
-      default: return '24px';
-    }
-  };
-
-  const getStarColor = (starIndex) => {
-    if (hover >= starIndex) {
-      return '#FFD700'; // Dorado cuando hoover
-    }
-    if (rating >= starIndex) {
-      return '#FFA500'; // Naranja Seleccinado
-    }
-    return '#DDD'; // Gris vacío
   };
 
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+    <div className="rating-container">
       {[...Array(maxStars)].map((_, index) => {
-        const starValue = index + 1;
+        const starNumber = index + 1;
+        const isFilled = starNumber <= rating;
+        
         return (
-          <span
+          <button
             key={index}
-            onClick={() => handleClick(starValue)}
-            onMouseEnter={() => handleMouseEnter(starValue)}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              fontSize: getStarSize(),
-              color: getStarColor(starValue),
-              cursor: readOnly ? 'default' : 'pointer',
-              transition: 'color 0.2s ease',
-              userSelect: 'none'
-            }}
+            onClick={() => handleClick(starNumber)}
+            disabled={readOnly}
+            className={`
+              rating-star 
+              rating-star-${size}
+              ${isFilled ? 'rating-star-filled' : 'rating-star-empty'}
+              ${readOnly ? 'rating-star-readonly' : 'rating-star-interactive'}
+            `}
           >
             ★
-          </span>
+          </button>
         );
       })}
+      
       {!readOnly && (
-        <span style={{ marginLeft: '8px', fontSize: '14px', color: '#666' }}>
+        <span className="rating-text">
           {rating > 0 ? `${rating}/${maxStars}` : 'Sin calificar'}
         </span>
       )}

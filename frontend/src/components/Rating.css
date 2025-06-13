@@ -1,0 +1,56 @@
+/* frontend/src/components/Rating.css */
+
+.rating-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.rating-star {
+  background: none;
+  border: none;
+  padding: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Tamaños */
+.rating-star-small {
+  font-size: 18px;
+}
+
+.rating-star-medium {
+  font-size: 24px;
+}
+
+.rating-star-large {
+  font-size: 32px;
+}
+
+/* Estados */
+.rating-star-filled {
+  color: #FFA500; /* Naranja */
+}
+
+.rating-star-empty {
+  color: #DDD; /* Gris claro */
+}
+
+/* Interactivo vs Solo lectura */
+.rating-star-interactive {
+  cursor: pointer;
+}
+
+.rating-star-interactive:hover {
+  color: #FFD700; /* Dorado al hacer hover */
+  transform: scale(1.1);
+}
+
+.rating-star-readonly {
+  cursor: default;
+}
+
+.rating-text {
+  margin-left: 8px;
+  color: #666;
+  font-size: 14px;
+}

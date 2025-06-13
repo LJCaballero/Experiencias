@@ -1,6 +1,6 @@
 // src/controllers/reservas/ControlReservas.js
-import getPool from '../../database/getPool.js'; // Usa tu getPool.js
-import { isBefore, addHours } from 'date-fns'; // Necesitarás 'npm install date-fns' si no lo has hecho
+import getPool from '../../database/getPool.js'; 
+import { isBefore, addHours } from 'date-fns'; // Se necesita instalar 'npm install date-fns' 
 
 // --- Controlador para Crear una Reserva (anteriormente en tu rutas, ahora centralizado) ---
 const crearReserva = async (req, res, next) => {

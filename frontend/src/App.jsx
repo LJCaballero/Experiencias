@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import RecoverPassword from './pages/RecoverPassword.jsx';
 import ValidateUserPage from './pages/ValidateUserPage.jsx';
+import RatingDemoPage from './pages/RatingDemoPage.jsx';
 // import ExperienceDetailPage from './pages/ExperienceDetailPage';
 // import NotFoundPage from './pages/NotFoundPage';
 
@@ -22,6 +23,7 @@ function App() {
         <Link to="/" style={{ marginRight: '15px' }}>Inicio</Link>
         <Link to="/login" style={{ marginRight: '15px' }}>Iniciar Sesión</Link>
         <Link to="/register" style={{ marginRight: '15px' }}>Registrarse</Link>
+        <Link to="/rating-demo" style={{ marginRight: '15px' }}>Demo Rating</Link>
         {/* Puedes añadir más enlaces aquí, por ejemplo: */}
         {/* <Link to="/experiencias" style={{ marginRight: '15px' }}>Experiencias</Link> */}
       </nav>
@@ -34,6 +36,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/recover-password" element={<RecoverPassword />} />
         <Route path="/validate/:token" element={<ValidateUserPage />} />
+        <Route path="/rating-demo" element={<RatingDemoPage />} />
 
         {/* Ejemplo de una ruta con un parámetro (para una experiencia específica) */}
         {/* <Route path="/experiences/:id" element={<ExperienceDetailPage />} /> */}

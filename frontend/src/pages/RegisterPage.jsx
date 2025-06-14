@@ -7,7 +7,7 @@ const RegisterPage = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    avatar: null,
+    //avatar: null,
   });
 
   const [errors, setErrors] = useState({});
@@ -32,7 +32,7 @@ const RegisterPage = () => {
       newErrors.email = "El correo electrónico es obligatorio";
     if (!formData.password.trim())
       newErrors.password = "La contraseña es obligatoria";
-    else if (formData.password.length < 8)
+    else if (formData.password.length < 6)
       newErrors.password = "La contraseña debe tener al menos 8 caracteres";
     if (formData.password !== formData.confirmPassword)
       newErrors.confirmPassword = "Las contraseñas no coinciden";
@@ -46,18 +46,33 @@ const RegisterPage = () => {
 
     if (Object.keys(formErrors).length === 0) {
       try {
-        const formDataToSend = new FormData();
-        formDataToSend.append("firstName", formData.firstName);
-        formDataToSend.append("lastName", formData.lastName);
-        formDataToSend.append("email", formData.email);
-        formDataToSend.append("password", formData.password);
-        if (formData.avatar) {
-          formDataToSend.append("avatar", formData.avatar);
-        }
+        
+        //JSON
+        const dataToSend = {
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          password: formData.password
+        };
+        
+        //FORM DATA --> PARA CUANDO MEtamos imagens y cambiemos el backend
+        // const formDataToSend = new FormData();
+        // formDataToSend.append("firstName", formData.firstName);
+        // formDataToSend.append("lastName", formData.lastName);
+        // formDataToSend.append("email", formData.email);
+        // formDataToSend.append("password", formData.password);
+        // if (formData.avatar) {
+        //   formDataToSend.append("avatar", formData.avatar);
+        // }
 
         const response = await fetch("http://localhost:3001/users/register", {
           method: "POST",
-          body: formDataToSend,
+          //JSON
+          headers: {
+            'Content-Type': 'application/json', 
+          },
+          body: JSON.stringify(dataToSend),
+          //body: formDataToSend,
         });
 
         const data = await response.json();

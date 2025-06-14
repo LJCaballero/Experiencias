@@ -11,6 +11,7 @@ import RecoverPassword from './pages/RecoverPassword.jsx';
 import ValidateUserPage from './pages/ValidateUserPage.jsx';
 import RatingDemoPage from './pages/RatingDemoPage.jsx';
 import ExperiencesListPage from './pages/ExperienceListPage.jsx';
+import ExperienceFormPage from './pages/ExperienceFormPage.jsx';
 
 // import ExperienceDetailPage from './pages/ExperienceDetailPage';
 // import NotFoundPage from './pages/NotFoundPage';
@@ -43,6 +44,8 @@ function App() {
         <Route path="/validate/:token" element={<ValidateUserPage />} />
         <Route path="/rating-demo" element={<RatingDemoPage />} />
         <Route path="/experiences" element={<ExperiencesListPage />} />
+        <Route path="/admin/experiences/new" element={<ExperienceFormPage />} />
+        <Route path="/admin/experiences/:id/edit" element={<ExperienceFormPage />} /> 
 
         {/* Ejemplo de una ruta con un parámetro (para una experiencia específica) */}
         {/* <Route path="/experiences/:id" element={<ExperienceDetailPage />} /> */}

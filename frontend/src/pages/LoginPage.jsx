@@ -1,4 +1,4 @@
-// frontend/src/pages/LoginPage.jsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
@@ -15,7 +15,7 @@ const LoginPage = () => {
   const [error, setError] = useState(null);
   const [LoginLoading, setLoginLoading] = useState(false);
 
-  //Jose --> Si ya está logueado, redirigir automáticamente
+  // Si ya está logueado, redirigir automáticamente
   useEffect(() => {
     if (!loading && isAuthenticated) {
       console.log(' Usuario ya logueado, redirigiendo...');

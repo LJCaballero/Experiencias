@@ -24,14 +24,14 @@ app.use(morgan("dev"));
 app.use("/uploads", express.static("uploads"));
 
 // Usar todas las rutas del sistema (users, experiences, admin, etc.)
-app.use("/api/v1", router);
+app.use(router);
 
 // Middlewares de manejo de errores (van al final)
 app.use(notFoundHandler);
 app.use(errorHandler);
 
 // Iniciar servidor
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () =>
   console.log(` Servidor corriendo en http://localhost:${PORT}`)
 );

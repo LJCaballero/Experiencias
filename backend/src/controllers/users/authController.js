@@ -53,7 +53,7 @@ export const loginUser = async (req, res, next) => {
 
     const pool = await getPool();
 
-    const [users] = await pool.query("SELECT id, email, password, firstName, lastName FROM users WHERE email = ?", [email]);
+    const [users] = await pool.query("SELECT id, email, password, firstName, lastName, role FROM users WHERE email = ?", [email]);
 
     if (users.length === 0) {
       return res.status(401).json({ message: "Credenciales inválidas" });
@@ -78,7 +78,16 @@ export const loginUser = async (req, res, next) => {
       { expiresIn: "7d" }
     );
 
-    res.status(200).json({ token });
+    res.status(200).json({ 
+  token,
+  user: {
+    id: user.id,
+    email: user.email,
+    firstName: user.firstName,
+    lastName: user.lastName,
+    role: user.role
+  }
+});
   } catch (error) {
     next(error);
   }

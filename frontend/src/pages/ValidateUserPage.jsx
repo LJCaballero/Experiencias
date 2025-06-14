@@ -14,7 +14,7 @@ const ValidateUserPage = () => {
     useEffect(() => {
         const verifyToken = async () => {
             try {
-                await axios.get(`http://localhost:3001/api/auth/validate/${token}`);
+                await axios.get(`http://localhost:3001/users/validate-user${token}`);
                 setStatus('success');
                 setMessage('Usuario validado correctamente. Puedes iniciar sesión ahora.');
                 setTimeout(() => {

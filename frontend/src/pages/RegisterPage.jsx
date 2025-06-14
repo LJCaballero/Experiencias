@@ -50,7 +50,7 @@ const RegisterPage = () => {
           formDataToSend.append('avatar', formData.avatar);
         }
 
-        const response = await fetch('http://localhost:3001/api/v1/users/register', {
+        const response = await fetch('http://localhost:3001/users/register', {
           method: 'POST',
           body: formDataToSend,
         });
@@ -72,7 +72,10 @@ const RegisterPage = () => {
           setSuccessMessage('');
         }
       } catch (error) {
-        setErrors({ general: 'Error de conexión con el servidor' });
+        console.error('Error en registro:', error);
+        setErrors({ 
+        general: error.response?.data?.message || 'Error de conexión con el servidor' 
+        });
         setSuccessMessage('');
       }
     } else {

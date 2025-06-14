@@ -1,7 +1,7 @@
-// frontend/src/pages/RecoverPassword.jsx
+// HE COMENTADO LA RUTA Y DEMAS PARA QUE NO DE ERROR ARREGALARLA CUANDO IMPLEMENTEMOS EL RECUPERAR CONTRASEÑA
 
 import React, { useState } from 'react';
-import axios from 'axios';
+/*import axios from 'axios'; */
 
 const RecoverPassword = () => {
     const [email, setEmail] = useState('');
@@ -15,14 +15,14 @@ const RecoverPassword = () => {
         setError('');
         setSubmitted(false);
 
-        try {
+        /*try {
             const response = await axios.post('http://localhost:3001/api/recover-password', { email });
             setSubmitted(true);
         } catch (err) {
             setError(err.response?.data?.message || 'Error al enviar el correo de recuperación');
         } finally {
             setLoading(false);
-        }
+        }*/
     };
 
     return (

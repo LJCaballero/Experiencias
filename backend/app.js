@@ -10,11 +10,13 @@ import router from "./src/routes/index.js";
 // import upload from "./src/middlewares/uploadFiles.js";  // Comentado por ahora
 import notFoundHandler from "./src/errors/notFoundHandler.js";
 import errorHandler from "./src/errors/errorHandler.js";
-import auth from "./src/middlewares/authMiddleware.js";
+import authMiddleware from "./src/middlewares/authMiddleware.js";
 
 // Inicializar aplicación Express
 const app = express();
 
+
+app.use(authMiddleware);
 // Middleware básicos
 app.use(cors());
 app.use(express.json());

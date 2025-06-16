@@ -1,5 +1,5 @@
 import "dotenv/config";
-import server from "./server.js";
+import server from "./server.js"; // ← Perfecto
 import getPool from "./src/database/getPool.js";
 
 const iniciarAplicacion = async () => {

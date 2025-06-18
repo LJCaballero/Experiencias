@@ -4,7 +4,7 @@ const selectExperienceByIdService = async (experienceId) => {
     try {
         const pool = await getPool();
         const [rows] = await pool.query(
-            `SELECT * FROM experiences WHERE id = ?`,
+            `SELECT e.*, COUNT(r.id) AS reservations FROM experiences e LEFT JOIN reservations r ON e.id = r.experienceId WHERE e.id = ? GROUP BY e.id`,
             [experienceId]
         );
 

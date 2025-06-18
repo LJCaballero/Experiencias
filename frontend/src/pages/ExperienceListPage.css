@@ -1,278 +1,303 @@
 
-.experiences-container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-}
+/* Añadir estos estilos a tu ExperienceListPage.css existente */
 
-/* Header */
+/* Header con acciones */
 .experiences-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
 }
 
-.header-content h2 {
-  margin: 0;
-  color: #333;
+.header-actions {
+  display: flex;
+  gap: 15px;
 }
 
-.welcome-text {
-  margin: 5px 0 0 0;
-  color: #666;
-  font-size: 14px;
-  font-style: italic;
-}
-
-.experiences-header h2 {
-  margin: 0;
-  color: #333;
-}
-
-.btn-new-experience {
+.btn-my-reservations {
   padding: 10px 20px;
   background-color: #28a745;
   color: white;
   text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
+  border-radius: 8px;
+  font-weight: 500;
   transition: background-color 0.3s ease;
 }
 
-.btn-new-experience:hover {
+.btn-my-reservations:hover {
   background-color: #218838;
 }
 
-/* Filtros */
-.filters-container {
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-}
-
-.filter-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.filter-label {
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #555;
-}
-
-.filter-input,
-.filter-select {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.filter-input:focus,
-.filter-select:focus {
-  outline: none;
-  border-color: #007bff;
-}
-
-/* Información de resultados */
-.results-info {
-  margin-bottom: 20px;
-}
-
-.results-info p {
+/* Disponibilidad */
+.experience-availability {
+  font-size: 0.9rem;
   color: #666;
-  margin: 0;
-}
-
-/* Lista de experiencias */
-.experiences-list {
-  display: grid;
-  gap: 20px;
-}
-
-.experience-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 20px;
-  align-items: start;
-  transition: box-shadow 0.3s ease;
-}
-
-.experience-card:hover {
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-/* Imagen */
-.experience-image {
-  width: 120px;
-  height: 120px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.experience-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.image-placeholder {
-  font-size: 32px;
-  color: #666;
-}
-
-/* Contenido */
-.experience-content {
-  flex: 1;
-}
-
-.experience-title {
-  margin: 0 0 10px 0;
-  color: #333;
-  font-size: 20px;
-}
-
-.experience-location {
-  margin: 0 0 10px 0;
-  color: #666;
-  font-size: 14px;
-}
-
-.experience-description {
-  margin: 0 0 15px 0;
-  color: #555;
-  line-height: 1.4;
-}
-
-.experience-rating {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.rating-count {
-  font-size: 14px;
-  color: #666;
-}
-
-.experience-date,
-.experience-capacity {
   margin: 5px 0;
-  color: #666;
-  font-size: 14px;
 }
 
-/* Acciones */
-.experience-actions {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+/* Estado de reserva */
+.reservation-status {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 10px 0;
+  text-align: center;
 }
 
-.experience-price {
-  font-size: 24px;
-  font-weight: bold;
-  color: #28a745;
-}
-
+/* Botones de acción */
 .action-buttons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
-.btn-details,
-.btn-edit {
-  padding: 8px 16px;
+.btn-reserve {
+  padding: 12px 16px;
+  background-color: #ff6b6b;
+  color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-reserve:hover {
+  background-color: #ff5252;
+}
+
+.btn-login-to-reserve {
+  padding: 12px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.btn-login-to-reserve:hover {
+  background-color: #0056b3;
+}
+
+.btn-details {
+  padding: 10px 16px;
+  background-color: #f8f9fa;
+  color: #333;
   text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
   text-align: center;
-  font-size: 14px;
+  font-size: 0.9rem;
+}
+
+.btn-details:hover {
+  background-color: #e9ecef;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #666;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  color: #333;
+}
+
+.modal-body {
+  padding: 25px;
+}
+
+.reservation-summary {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.reservation-summary p {
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.reservation-summary strong {
+  color: #333;
+}
+
+/* Formulario de reserva en modal */
+.reservation-form .form-group {
+  margin-bottom: 20px;
+}
+
+.reservation-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.reservation-form .form-group select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+}
+
+.reservation-form .total-price {
+  text-align: center;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #e8f5e8;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  color: #28a745;
+}
+
+.reservation-form .form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.btn-confirm-reservation {
+  padding: 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-confirm-reservation:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.btn-confirm-reservation:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+}
+
+.btn-cancel {
+  padding: 15px;
+  background-color: transparent;
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.btn-details {
-  background-color: #007bff;
+.btn-cancel:hover:not(:disabled) {
+  background-color: #dc3545;
   color: white;
 }
 
-.btn-details:hover {
-  background-color: #0056b3;
-}
-
-.btn-edit {
-  background-color: #ffc107;
-  color: black;
-}
-
-.btn-edit:hover {
-  background-color: #e0a800;
-}
-
-/* Estados */
-.loading-container,
-.error-container {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.error-container {
-  color: red;
-}
-
-.no-results {
-  text-align: center;
-  padding: 40px;
-  color: #666;
-}
-
-/* Responsive */
+/* Responsive para modal */
 @media (max-width: 768px) {
-  .experiences-container {
-    padding: 15px;
+  .modal-content {
+    width: 95%;
+    margin: 20px;
   }
-  
+
+  .modal-header {
+    padding: 15px 20px;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .reservation-form .form-actions {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .action-buttons {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 480px) {
   .experiences-header {
     flex-direction: column;
+    align-items: stretch;
     gap: 15px;
-    text-align: center;
   }
-  
-  .filters-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .experience-card {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  
-  .experience-actions {
-    text-align: center;
-  }
-  
-  .action-buttons {
-    flex-direction: row;
-    justify-content: center;
+
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    max-height: 100vh;
   }
 }

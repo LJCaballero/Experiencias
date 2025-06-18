@@ -15,6 +15,9 @@ import ExperienceFormPage from './pages/ExperienceFormPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
 import ResetPassword from './pages/ResetPassword.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
+import ExperienceDetailPage from './pages/ExperienceDetailPage';
+import UserReservationsPage from './pages/UserReservationPage.jsx';
+
 
 
 
@@ -57,6 +60,9 @@ function App() {
         <Route path="/profile" element={<ProfilePage />} /> 
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/experiences/:id" element={<ExperienceDetailPage />} />
+        <Route path="/my-reservations" element={<UserReservationsPage />} />
+
 
         {/* Ejemplo de una ruta con un parámetro (para una experiencia específica) */}
         {/* <Route path="/experiences/:id" element={<ExperienceDetailPage />} /> */}

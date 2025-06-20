@@ -1,31 +1,77 @@
-
-import React, { useState } from 'react';
-import './HomePage.css';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import "./HomePage.css";
+import { Link } from "react-router-dom";
+import UserPage from "./UserPage";
 
 function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mostrarPerfil, setMostrarPerfil] = useState(false);
+
+  const togglePerfil = () => {
+    setMostrarPerfil(!mostrarPerfil);
+  };
 
   return (
     <>
       <nav className="navbar">
         <div className="logo">Experiencias</div>
-        <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          <Link to="/" className="nav-button">Inicio</Link>
-          <Link to="/login" className="nav-button">Iniciar sesión</Link>
-          <Link to="/register" className="nav-button">Registro</Link>
-          <Link to="/experiencias" className="nav-button">Todas las experiencias</Link>
+        <div className={`nav-links ${menuOpen ? "active" : ""}`}>
+          <Link
+            to="/"
+            className="nav-button"
+            onClick={() => setMenuOpen(false)}
+          >
+            Inicio
+          </Link>
+          <Link
+            to="/login"
+            className="nav-button"
+            onClick={() => setMenuOpen(false)}
+          >
+            Iniciar sesión
+          </Link>
+          <Link
+            to="/register"
+            className="nav-button"
+            onClick={() => setMenuOpen(false)}
+          >
+            Registro
+          </Link>
+          <Link
+            to="/experiencias"
+            className="nav-button"
+            onClick={() => setMenuOpen(false)}
+          >
+            Todas las experiencias
+          </Link>
         </div>
-        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+        <div
+          className="hamburger"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Abrir menú"
+        >
           ☰
         </div>
+        <button
+          className="mini-avatar"
+          onClick={togglePerfil}
+          aria-label="Abrir perfil"
+        >
+          <img
+            src="/avatar.png"
+            alt="Perfil"
+            style={{ width: 40, height: 40, borderRadius: "50%" }}
+          />
+        </button>
       </nav>
 
       <header className="hero">
         <div className="hero-text">
           <h1>Vive Experiencias Únicas</h1>
           <p>Descubre aventuras inolvidables cerca de ti.</p>
-          <a href="#experiencias" className="cta-button">Explorar ahora</a>
+          <Link to="/experiencias" className="cta-button">
+            Explorar ahora
+          </Link>
         </div>
       </header>
 
@@ -52,12 +98,16 @@ function HomePage() {
 
       <section className="cta-final">
         <h2>¿Listo para tu próxima aventura?</h2>
-        <a href="#experiencias" className="cta-button">Empezar ahora</a>
+        <Link to="/experiencias" className="cta-button">
+          Empezar ahora
+        </Link>
       </section>
 
       <footer>
         <p>&copy; 2025 Experiencias Únicas</p>
       </footer>
+
+      {mostrarPerfil && <UserPage onCerrar={togglePerfil} />}
     </>
   );
 }

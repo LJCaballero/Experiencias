@@ -1,9 +1,24 @@
-
 .experience-detail-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1100px;
+  margin: 40px auto 0 auto;
+  padding: 32px 18px 32px 18px;
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px 0 #0077cc22;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  animation: floaty 3s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* Header con navegación */
@@ -13,47 +28,72 @@
   align-items: center;
   margin-bottom: 30px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 2.5px solid #0077cc22;
 }
 
 .btn-back {
   display: inline-flex;
   align-items: center;
   padding: 10px 16px;
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #fff;
+  color: #0077cc;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  border: 2px solid #0077cc;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+  box-shadow: 0 2px 8px 0 #0077cc11;
 }
 
 .btn-back:hover {
-  background-color: #e0e0e0;
+  background-color: #0077cc;
+  color: #fff;
+  border: 2px solid #0077cc;
 }
 
 .btn-edit {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: #ff5a5f;
+  color: #fff;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  border: none;
+  transition: background 0.3s, color 0.3s, transform 0.15s;
+  box-shadow: 0 2px 8px 0 #ff5a5f22;
 }
 
 .btn-edit:hover {
-  background-color: #0056b3;
+  background-color: #fff;
+  color: #ff5a5f;
+  border: 2px solid #ff5a5f;
+  transform: translateY(-2px) scale(1.03);
 }
 
-/* Imagen principal */
+
 .experience-hero {
   width: 100%;
   height: 400px;
   margin-bottom: 40px;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 18px #0077cc22;
+  background: #fff;
+  animation: popin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes popin {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .hero-image {
@@ -65,12 +105,12 @@
 .hero-placeholder {
   width: 100%;
   height: 100%;
-  background-color: #f8f9fa;
+  background-color: #0077cc11;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #6c757d;
+  color: #0077cc;
 }
 
 .hero-placeholder span {
@@ -87,20 +127,27 @@
 }
 
 .content-main {
-  background-color: white;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px #0077cc11;
+  padding: 24px 18px;
+  animation: floaty 3s ease-in-out infinite;
 }
 
-/* Información básica */
+
 .experience-header {
   margin-bottom: 30px;
 }
 
 .experience-header h1 {
   font-size: 2.5rem;
-  font-weight: 700;
-  color: #333;
+  font-weight: 800;
+  color: #ff5a5f;
   margin-bottom: 20px;
   line-height: 1.2;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #0077cc22;
+  animation: popin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .experience-meta {
@@ -115,11 +162,16 @@
   align-items: center;
   gap: 8px;
   font-size: 1rem;
-  color: #555;
+  color: #0077cc;
+  background: #fff;
+  border-radius: 6px;
+  padding: 6px 14px;
+  box-shadow: 0 2px 8px #0077cc11;
 }
 
 .meta-icon {
   font-size: 1.2rem;
+  color: #ff5a5f;
 }
 
 /* Rating */
@@ -132,33 +184,33 @@
 
 .rating-text {
   font-size: 1rem;
-  color: #666;
-  font-weight: 500;
+  color: #0077cc;
+  font-weight: 600;
 }
 
-/* Descripción */
+
 .experience-description {
   margin-bottom: 30px;
 }
 
 .experience-description h2 {
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #0077cc;
   margin-bottom: 15px;
 }
 
 .experience-description p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #555;
+  color: #333;
 }
 
-/* Información adicional */
+
 .experience-info h2 {
   font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #0077cc;
   margin-bottom: 20px;
 }
 
@@ -173,39 +225,41 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  background-color: #f8f9fa;
+  background-color: #f5faff;
   border-radius: 8px;
+  border: 1.5px solid #0077cc22;
+  box-shadow: 0 2px 8px #0077cc11;
 }
 
 .info-item strong {
-  color: #333;
-  font-weight: 600;
+  color: #ff5a5f;
+  font-weight: 700;
 }
 
 .price-highlight {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #28a745;
+  color: #ff5a5f;
 }
 
 .available {
-  color: #28a745;
-  font-weight: 600;
+  color: #0077cc;
+  font-weight: 700;
 }
 
 .unavailable {
-  color: #dc3545;
-  font-weight: 600;
+  color: #ff5a5f;
+  font-weight: 700;
 }
 
 .status-active {
-  color: #28a745;
-  font-weight: 600;
+  color: #0077cc;
+  font-weight: 700;
 }
 
 .status-inactive {
-  color: #dc3545;
-  font-weight: 600;
+  color: #ff5a5f;
+  font-weight: 700;
 }
 
 /* Sidebar con reservas */
@@ -216,31 +270,30 @@
 }
 
 .reservation-card {
-  background-color: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
+  background-color: #fff;
+  border: 2px solid #0077cc22;
+  border-radius: 16px;
   padding: 30px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 18px #0077cc22;
+  animation: floaty 3s ease-in-out infinite;
 }
 
 .price-display {
   text-align: center;
   margin-bottom: 25px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #e0e0e0;
-}
-
-.price-display {
+  border-bottom: 2px solid #ff5a5f22;
   font-size: 2rem;
   font-weight: 700;
-  color: #333;
+  color: #ff5a5f;
   display: block;
+  letter-spacing: 1px;
 }
 
 .price-per-person {
   font-size: 0.9rem;
-  color: #666;
-  font-weight: 400;
+  color: #0077cc;
+  font-weight: 500;
   display: block;
   margin-top: 5px;
 }
@@ -252,45 +305,54 @@
 }
 
 .status-message {
-  color: #28a745;
-  font-weight: 600;
+  color: #0077cc;
+  font-weight: 700;
   margin-bottom: 15px;
 }
 
 .btn-view-reservations {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #28a745;
-  color: white;
+  background-color: #0077cc;
+  color: #fff;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+  border: 2px solid #0077cc;
 }
 
 .btn-view-reservations:hover {
-  background-color: #218838;
+  background-color: #fff;
+  color: #0077cc;
+  border: 2px solid #0077cc;
 }
 
-/* Botón de reserva */
+
 .btn-reserve {
   width: 100%;
   padding: 15px;
-  background-color: #ff6b6b;
-  color: white;
+  background-color: #ff5a5f;
+  color: #fff;
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s, color 0.3s, transform 0.15s;
+  box-shadow: 0 2px 8px 0 #ff5a5f22;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
 }
 
 .btn-reserve:hover {
-  background-color: #ff5252;
+  background-color: #fff;
+  color: #ff5a5f;
+  border: 2px solid #ff5a5f;
+  transform: translateY(-2px) scale(1.03);
 }
 
-/* Formulario de reserva */
+
 .reservation-form {
   margin-top: 20px;
 }
@@ -302,26 +364,35 @@
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #0077cc;
 }
 
 .form-group select {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 2px solid #0077cc;
   border-radius: 8px;
   font-size: 1rem;
-  background-color: white;
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group select:focus {
+  border-color: #ff5a5f;
+  box-shadow: 0 0 0 2px #ff5a5f33;
 }
 
 .total-price {
   text-align: center;
   margin: 20px 0;
   padding: 15px;
-  background-color: #f8f9fa;
+  background-color: #f5faff;
   border-radius: 8px;
   font-size: 1.2rem;
+  color: #0077cc;
+  border: 1.5px solid #0077cc22;
+  font-weight: 700;
 }
 
 .form-actions {
@@ -333,22 +404,27 @@
 .btn-confirm-reservation {
   width: 100%;
   padding: 15px;
-  background-color: #28a745;
-  color: white;
+  background-color: #0077cc;
+  color: #fff;
   border: none;
   border-radius: 8px;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s, color 0.3s, transform 0.15s;
+  box-shadow: 0 2px 8px 0 #0077cc22;
 }
 
 .btn-confirm-reservation:hover:not(:disabled) {
-  background-color: #218838;
+  background-color: #fff;
+  color: #0077cc;
+  border: 2px solid #0077cc;
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn-confirm-reservation:disabled {
-  background-color: #6c757d;
+  background-color: #ccc;
+  color: #888;
   cursor: not-allowed;
 }
 
@@ -356,47 +432,51 @@
   width: 100%;
   padding: 12px;
   background-color: transparent;
-  color: #dc3545;
-  border: 1px solid #dc3545;
+  color: #ff5a5f;
+  border: 2px solid #ff5a5f;
   border-radius: 8px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
 
 .btn-cancel:hover:not(:disabled) {
-  background-color: #dc3545;
-  color: white;
+  background-color: #ff5a5f;
+  color: #fff;
 }
 
-/* Mensajes de estado */
+
 .auth-message {
   text-align: center;
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: #f5faff;
   border-radius: 8px;
   margin-bottom: 20px;
+  border: 1.5px solid #0077cc22;
 }
 
 .auth-message p {
   margin-bottom: 15px;
-  color: #666;
+  color: #0077cc;
 }
 
 .btn-login {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #007bff;
-  color: white;
+  background-color: #0077cc;
+  color: #fff;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
+  border: 2px solid #0077cc;
 }
 
 .btn-login:hover {
-  background-color: #0056b3;
+  background-color: #fff;
+  color: #0077cc;
+  border: 2px solid #0077cc;
 }
 
 .past-experience,
@@ -404,12 +484,12 @@
   text-align: center;
   padding: 20px;
   background-color: #fff3cd;
-  border: 1px solid #ffeaa7;
+  border: 1.5px solid #ff5a5f44;
   border-radius: 8px;
-  color: #856404;
+  color: #ff5a5f;
+  font-weight: 700;
 }
 
-/* Estados de carga y error */
 .loading-container,
 .error-container {
   display: flex;
@@ -423,14 +503,28 @@
 .loading-container p,
 .error-container p {
   font-size: 1.2rem;
-  color: #666;
+  color: #0077cc;
   margin-bottom: 20px;
+  animation: floaty 3s ease-in-out infinite;
 }
 
-/* Responsive Design */
+
+@media (max-width: 900px) {
+  .experience-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .content-sidebar {
+    position: static;
+    margin-top: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .experience-detail-container {
-    padding: 15px;
+    padding: 10px;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .detail-header {
@@ -440,30 +534,22 @@
   }
 
   .experience-hero {
-    height: 250px;
-    margin-bottom: 30px;
-  }
-
-  .experience-content {
-    grid-template-columns: 1fr;
-    gap: 30px;
+    height: 220px;
+    margin-bottom: 25px;
+    border-radius: 10px;
   }
 
   .experience-header h1 {
     font-size: 2rem;
   }
 
-  .experience-meta {
-    flex-direction: column;
-    gap: 10px;
-  }
-
   .reservation-card {
-    padding: 20px;
+    padding: 18px;
+    border-radius: 10px;
   }
 
   .price-display {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .info-grid {
@@ -479,18 +565,18 @@
 
 @media (max-width: 480px) {
   .experience-detail-container {
-    padding: 10px;
+    padding: 4px;
   }
 
   .experience-header h1 {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
   }
 
   .reservation-card {
-    padding: 15px;
+    padding: 10px;
   }
 
   .hero-placeholder span {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }

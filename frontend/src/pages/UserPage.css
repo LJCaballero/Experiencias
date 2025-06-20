@@ -1,86 +1,167 @@
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f7fa;
+  margin: 0;
+  font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+  background: linear-gradient(120deg, #fff 60%, #0077cc11 100%);
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 25px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px 0 #0077cc11;
 }
 
 .mini-avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #0077cc;
+  transition: border-color 0.2s;
+}
+
+.mini-avatar:hover {
+  border-color: #ff5a5f;
 }
 
 .contenido {
-    padding: 30px;
+  padding: 30px;
 }
 
-/* Panel Lateral */
+
 .panel-perfil {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 320px;
-    height: 100vh;
-    background-color: white;
-    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
-    padding: 25px;
-    animation: slideIn 0.3s ease-out;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 340px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: -4px 0 18px #0077cc22;
+  padding: 32px 28px 24px 28px;
+  animation: slideIn 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 1000;
+  border-left: 3px solid #0077cc22;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @keyframes slideIn {
-    from { right: -350px; opacity: 0; }
-    to { right: 0; opacity: 1; }
+  from {
+    right: -350px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
 }
 
 .perfil-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover ;
-    margin-bottom: 15px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border: 3px solid #ff5a5f;
+  box-shadow: 0 2px 8px #0077cc22;
+  transition: border-color 0.3s;
+  background: #fff;
+}
+
+.perfil-avatar:hover {
+  border-color: #0077cc;
 }
 
 .perfil h2 {
-    margin: 10px 0 5px;
+  margin: 10px 0 5px;
+  color: #ff5a5f;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #0077cc22;
+  animation: popin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+@keyframes popin {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .perfil .email {
-    color: #666;
+  color: #0077cc;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 1rem;
 }
 
 .perfil .bio {
-    font-style: italic;
-    margin-top: 10px;
-    color: #555;
+  font-style: italic;
+  margin-top: 10px;
+  color: #555;
+  background: #0077cc11;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.98rem;
 }
 
 .edit-button {
-    margin-top: 20px;
-    padding: 8px 16px;
-    background-color: #0077ff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+  margin-top: 22px;
+  padding: 10px 22px;
+  background: linear-gradient(90deg, #ff5a5f 0%, #0077cc 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 #0077cc22;
+  transition: background 0.3s, color 0.3s, transform 0.15s;
+  letter-spacing: 0.5px;
+}
+
+.edit-button:hover {
+  background: linear-gradient(90deg, #fff 0%, #ff5a5f 100%);
+  color: #ff5a5f;
+  border: 2px solid #ff5a5f;
+  transform: translateY(-2px) scale(1.03);
 }
 
 .cerrar-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: transparent;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #ff5a5f;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.15s;
+}
+
+.cerrar-button:hover {
+  color: #0077cc;
+  transform: scale(1.2) rotate(10deg);
+}
+
+@media (max-width: 600px) {
+  .panel-perfil {
+    width: 100vw;
+    padding: 18px 8px 18px 8px;
+    border-radius: 0;
+  }
+  .contenido {
+    padding: 12px;
+  }
 }

@@ -1,14 +1,32 @@
 
-/* Añadir estos estilos a tu ExperienceListPage.css existente */
+body {
+  background: #fff;
+  font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+}
 
-/* Header con acciones */
 .experiences-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
   padding-bottom: 20px;
-  border-bottom: 2px solid #e0e0e0;
+  border-bottom: 2px solid #0077cc22;
+  background: #fff;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 2px 8px 0 #0077cc11;
+  animation: floaty 3s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 .header-actions {
@@ -18,38 +36,59 @@
 
 .btn-my-reservations {
   padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
+  background: linear-gradient(90deg, #ff5a5f 0%, #0077cc 100%);
+  color: #fff;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  border: none;
+  transition: background 0.3s, color 0.3s, transform 0.15s;
+  box-shadow: 0 2px 8px 0 #0077cc22;
+  letter-spacing: 0.5px;
 }
 
 .btn-my-reservations:hover {
-  background-color: #218838;
+  background: linear-gradient(90deg, #fff 0%, #ff5a5f 100%);
+  color: #ff5a5f;
+  border: 2px solid #ff5a5f;
+  transform: translateY(-2px) scale(1.03);
 }
 
-/* Disponibilidad */
 .experience-availability {
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 0.95rem;
+  color: #0077cc;
   margin: 5px 0;
+  font-weight: 500;
 }
 
-/* Estado de reserva */
 .reservation-status {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: #0077cc11;
+  color: #0077cc;
   padding: 8px 12px;
   border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.95rem;
+  font-weight: 600;
   margin: 10px 0;
   text-align: center;
+  border: 1.5px solid #0077cc44;
+  animation: popin 0.6s;
 }
 
-/* Botones de acción */
+@keyframes popin {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 .action-buttons {
   display: flex;
   flex-direction: column;
@@ -58,74 +97,99 @@
 
 .btn-reserve {
   padding: 12px 16px;
-  background-color: #ff6b6b;
-  color: white;
+  background-color: #ff5a5f;
+  color: #fff;
   border: none;
   border-radius: 6px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 0.9rem;
+  transition: background 0.3s, color 0.3s, transform 0.15s;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px 0 #ff5a5f22;
 }
 
 .btn-reserve:hover {
-  background-color: #ff5252;
+  background-color: #fff;
+  color: #ff5a5f;
+  border: 2px solid #ff5a5f;
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn-login-to-reserve {
   padding: 12px 16px;
-  background-color: #007bff;
-  color: white;
+  background-color: #0077cc;
+  color: #fff;
   border: none;
   border-radius: 6px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-size: 0.9rem;
+  transition: background 0.3s, color 0.3s, transform 0.15s;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px 0 #0077cc22;
 }
 
 .btn-login-to-reserve:hover {
-  background-color: #0056b3;
+  background-color: #fff;
+  color: #0077cc;
+  border: 2px solid #0077cc;
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn-details {
   padding: 10px 16px;
-  background-color: #f8f9fa;
-  color: #333;
+  background-color: #fff;
+  color: #0077cc;
   text-decoration: none;
   border-radius: 6px;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+  font-weight: 600;
+  border: 2px solid #0077cc;
+  transition: background 0.3s, color 0.3s, transform 0.15s;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .btn-details:hover {
-  background-color: #e9ecef;
+  background-color: #0077cc;
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
 }
 
-/* Modal */
+
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 119, 204, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
-  background-color: white;
-  border-radius: 12px;
+  background-color: #fff;
+  border-radius: 16px;
   max-width: 500px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px #0077cc33;
+  border: 2.5px solid #ff5a5f22;
+  animation: popin 0.6s;
 }
 
 .modal-header {
@@ -133,20 +197,21 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px 25px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1.5px solid #0077cc22;
 }
 
 .modal-header h3 {
   margin: 0;
   font-size: 1.3rem;
-  color: #333;
+  color: #0077cc;
+  font-weight: 700;
 }
 
 .modal-close {
   background: none;
   border: none;
   font-size: 2rem;
-  color: #666;
+  color: #ff5a5f;
   cursor: pointer;
   line-height: 1;
   padding: 0;
@@ -155,10 +220,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 0.2s;
 }
 
 .modal-close:hover {
-  color: #333;
+  color: #0077cc;
 }
 
 .modal-body {
@@ -170,6 +236,7 @@
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 25px;
+  border: 1.5px solid #0077cc22;
 }
 
 .reservation-summary p {
@@ -178,7 +245,7 @@
 }
 
 .reservation-summary strong {
-  color: #333;
+  color: #ff5a5f;
 }
 
 /* Formulario de reserva en modal */
@@ -189,27 +256,35 @@
 .reservation-form .form-group label {
   display: block;
   margin-bottom: 8px;
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #0077cc;
 }
 
 .reservation-form .form-group select {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ddd;
+  border: 2px solid #0077cc;
   border-radius: 8px;
   font-size: 1rem;
-  background-color: white;
+  background-color: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.reservation-form .form-group select:focus {
+  border-color: #ff5a5f;
+  box-shadow: 0 0 0 2px #ff5a5f33;
 }
 
 .reservation-form .total-price {
   text-align: center;
   margin: 20px 0;
   padding: 15px;
-  background-color: #e8f5e8;
+  background-color: #fff;
   border-radius: 8px;
   font-size: 1.2rem;
-  color: #28a745;
+  color: #ff5a5f;
+  border: 1.5px solid #ff5a5f22;
+  font-weight: 700;
 }
 
 .reservation-form .form-actions {
@@ -221,43 +296,48 @@
 
 .btn-confirm-reservation {
   padding: 15px;
-  background-color: #28a745;
-  color: white;
+  background: linear-gradient(90deg, #ff5a5f 0%, #0077cc 100%);
+  color: #fff;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s, color 0.3s, transform 0.15s;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px 0 #0077cc22;
 }
 
 .btn-confirm-reservation:hover:not(:disabled) {
-  background-color: #218838;
+  background: linear-gradient(90deg, #fff 0%, #ff5a5f 100%);
+  color: #ff5a5f;
+  border: 2px solid #ff5a5f;
+  transform: translateY(-2px) scale(1.03);
 }
 
 .btn-confirm-reservation:disabled {
-  background-color: #6c757d;
+  background-color: #ccc;
+  color: #888;
   cursor: not-allowed;
 }
 
 .btn-cancel {
   padding: 15px;
-  background-color: transparent;
-  color: #dc3545;
-  border: 1px solid #dc3545;
+  background-color: #fff;
+  color: #ff5a5f;
+  border: 2px solid #ff5a5f;
   border-radius: 8px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
 
 .btn-cancel:hover:not(:disabled) {
-  background-color: #dc3545;
-  color: white;
+  background-color: #ff5a5f;
+  color: #fff;
 }
 
-/* Responsive para modal */
 @media (max-width: 768px) {
   .modal-content {
     width: 95%;

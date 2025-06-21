@@ -38,7 +38,7 @@ function HomePage() {
             Registro
           </Link>
           <Link
-            to="/experiencias"
+            to="/experiences"
             className="nav-button"
             onClick={() => setMenuOpen(false)}
           >

@@ -1,6 +1,6 @@
 // frontend/src/App.jsx
 import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom'; // <-- SIN BrowserRouter
 import { AuthProvider } from './context/AuthContext';
 
 // Importa tus páginas
@@ -19,36 +19,19 @@ import ExperienceDetailPage from './pages/ExperienceDetailPage';
 import UserReservationsPage from './pages/UserReservationPage.jsx';
 import UserPage from './pages/UserPage.jsx';
 
-
-
-
-
-// import ExperienceDetailPage from './pages/ExperienceDetailPage';
-// import NotFoundPage from './pages/NotFoundPage';
-
-//
-
-
 function App() {
   return (
-    // BrowserRouter es el componente principal que habilita las rutas en tu aplicación
-    <BrowserRouter>
+
+    <>
       <nav style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
-        {/* Link crea enlaces de navegación sin recargar la página */}
         <Link to="/" style={{ marginRight: '15px' }}>Inicio</Link>
         <Link to="/login" style={{ marginRight: '15px' }}>Iniciar Sesión</Link>
         <Link to="/register" style={{ marginRight: '15px' }}>Registrarse</Link>
         <Link to="/rating-demo" style={{ marginRight: '15px' }}>Demo Rating</Link>
         <Link to="/experiences" style={{ marginRight: '15px' }}>Experiencias</Link>
-
-
-        {/* Puedes añadir más enlaces aquí, por ejemplo: */}
-        {/* <Link to="/experiencias" style={{ marginRight: '15px' }}>Experiencias</Link> */}
       </nav>
 
-      {/* Routes posibles rutas */}
       <Routes>
-        {/* Route asocia una URL (path) con un componente (element) */}
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
@@ -64,15 +47,8 @@ function App() {
         <Route path="/experiences/:id" element={<ExperienceDetailPage />} />
         <Route path="/my-reservations" element={<UserReservationsPage />} />
         <Route path="/user/:id" element={<UserPage />} />
-
-
-        {/* Ejemplo de una ruta con un parámetro (para una experiencia específica) */}
-        {/* <Route path="/experiences/:id" element={<ExperienceDetailPage />} /> */}
-
-        {/* Ruta para "Not Found" (cualquier URL que no coincida con las anteriores) */}
-        {/* <Route path="*" element={<NotFoundPage />} /> */}
       </Routes>
-    </BrowserRouter>
+    </>
   );
 }
 

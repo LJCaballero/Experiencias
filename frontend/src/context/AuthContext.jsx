@@ -3,6 +3,15 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext();
 
+
+/*export function AuthProvider({ children }) {
+  // ...tu lógica de autenticación...
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
+} */
 export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);

@@ -1,19 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./HomePage.css";
 import { Link } from "react-router-dom";
-import UserPage from "./UserPage";
+import ThemeContext from "../context/ThemeContext";
+import { useAuth } from "../context/AuthContext";
 
 function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [mostrarPerfil, setMostrarPerfil] = useState(false);
-
-  const togglePerfil = () => {
-    setMostrarPerfil(!mostrarPerfil);
-  };
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { user, logout } = useAuth();
 
   return (
     <>
-      <nav className="navbar">
+      <nav className={`navbar ${theme}`}>
         <div className="logo">Experiencias</div>
         <div className={`nav-links ${menuOpen ? "active" : ""}`}>
           <Link
@@ -23,20 +21,24 @@ function HomePage() {
           >
             Inicio
           </Link>
-          <Link
-            to="/login"
-            className="nav-button"
-            onClick={() => setMenuOpen(false)}
-          >
-            Iniciar sesión
-          </Link>
-          <Link
-            to="/register"
-            className="nav-button"
-            onClick={() => setMenuOpen(false)}
-          >
-            Registro
-          </Link>
+          {!user && (
+            <>
+              <Link
+                to="/login"
+                className="nav-button"
+                onClick={() => setMenuOpen(false)}
+              >
+                Iniciar sesión
+              </Link>
+              <Link
+                to="/register"
+                className="nav-button"
+                onClick={() => setMenuOpen(false)}
+              >
+                Registro
+              </Link>
+            </>
+          )}
           <Link
             to="/experiences"
             className="nav-button"
@@ -44,6 +46,26 @@ function HomePage() {
           >
             Todas las experiencias
           </Link>
+          {user && (
+            <button
+              className="nav-button"
+              onClick={() => {
+                logout();
+                setMenuOpen(false);
+              }}
+              style={{
+                background: "none",
+                border: "none",
+                color: "inherit",
+                font: "inherit",
+                cursor: "pointer",
+                padding: 0,
+                marginLeft: "16px"
+              }}
+            >
+              Cerrar sesión
+            </button>
+          )}
         </div>
         <div
           className="hamburger"
@@ -52,16 +74,24 @@ function HomePage() {
         >
           ☰
         </div>
-        <button
+        <Link
+          to="/profile"
           className="mini-avatar"
-          onClick={togglePerfil}
-          aria-label="Abrir perfil"
+          aria-label="Ir a perfil"
+          style={{ border: "none", background: "none", padding: 0, cursor: "pointer" }}
         >
           <img
             src="/avatar.png"
             alt="Perfil"
             style={{ width: 40, height: 40, borderRadius: "50%" }}
           />
+        </Link>
+        <button
+          onClick={toggleTheme}
+          style={{ fontSize: "1.2em", marginLeft: "16px", background: "none", border: "none", cursor: "pointer" }}
+          aria-label="Cambiar modo oscuro"
+        >
+          {theme === "light" ? "🌙" : "☀️"}
         </button>
       </nav>
 
@@ -106,8 +136,6 @@ function HomePage() {
       <footer>
         <p>&copy; 2025 Experiencias Únicas</p>
       </footer>
-
-      {mostrarPerfil && <UserPage onCerrar={togglePerfil} />}
     </>
   );
 }

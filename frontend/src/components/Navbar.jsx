@@ -13,8 +13,12 @@ export default function Navbar() {
       <Link to="/" style={{ marginRight: '15px', fontWeight: 'bold' }}>Experiencias Únicas</Link>
       <div style={{ display: 'inline' }}>
         <Link to="/" style={{ marginRight: '15px' }}>Inicio</Link>
-        <Link to="/login" style={{ marginRight: '15px' }}>Iniciar Sesión</Link>
-        <Link to="/register" style={{ marginRight: '15px' }}>Registrarse</Link>
+        {!user && (
+          <>
+            <Link to="/login" style={{ marginRight: '15px' }}>Iniciar Sesión</Link>
+            <Link to="/register" style={{ marginRight: '15px' }}>Registrarse</Link>
+          </>
+        )}
         <Link to="/rating-demo" style={{ marginRight: '15px' }}>Demo Rating</Link>
         <Link to="/experiences" style={{ marginRight: '15px' }}>Experiencias</Link>
         {user ? (

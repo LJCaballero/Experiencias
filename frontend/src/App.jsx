@@ -1,7 +1,8 @@
 // frontend/src/App.jsx
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom'; // <-- SIN BrowserRouter
-import { AuthProvider } from './context/AuthContext';
+import { Routes, Route } from 'react-router-dom'; 
+import { AuthProvider } from './context/AuthContext';  // <-- Corregido: ./ no ../
+import Navbar from './components/Navbar';
 
 // Importa tus páginas
 import HomePage from './pages/HomePage';
@@ -21,16 +22,8 @@ import UserPage from './pages/UserPage.jsx';
 
 function App() {
   return (
-
     <>
-      <nav style={{ padding: '10px', borderBottom: '1px solid #ccc' }}>
-        <Link to="/" style={{ marginRight: '15px' }}>Inicio</Link>
-        <Link to="/login" style={{ marginRight: '15px' }}>Iniciar Sesión</Link>
-        <Link to="/register" style={{ marginRight: '15px' }}>Registrarse</Link>
-        <Link to="/rating-demo" style={{ marginRight: '15px' }}>Demo Rating</Link>
-        <Link to="/experiences" style={{ marginRight: '15px' }}>Experiencias</Link>
-      </nav>
-
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />

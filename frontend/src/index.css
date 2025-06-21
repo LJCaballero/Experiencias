@@ -39,6 +39,7 @@ body.dark {
 }
 
 /* NAVBAR */
+
 .navbar {
   background: #fff;
   color: var(--color-text);
@@ -166,5 +167,8 @@ button:focus-visible {
   }
 }
 
+.main-content {
+  margin-top: 64px; /* Ajusta este valor si tu navbar es más alto o más bajo */
+}
 
 /* Puedemso agregar más estilos específicos para modo oscuro si lo necesitamos avisar*/

@@ -2,11 +2,18 @@
 import getPool from '../../database/getPool.js'; 
 import { isBefore, addHours } from 'date-fns'; // Se necesita instalar 'npm install date-fns' 
 
+function toMySQLDateTime(dateString) {
+  const date = new Date(dateString);
+  const pad = n => n < 10 ? '0' + n : n;
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+}
+
 // --- Controlador para Crear una Reserva (anteriormente en tu rutas, ahora centralizado) ---
 const crearReserva = async (req, res, next) => {
     let connection;
     try {
         const { experienceId, userId, experienceDate, numberOfPeople } = req.body;
+        const formattedDate = toMySQLDateTime(experienceDate);
 
         if (!experienceId || !userId || !experienceDate || numberOfPeople === undefined) {
             const error = new Error('Faltan datos necesarios para la reserva');
@@ -56,7 +63,7 @@ const crearReserva = async (req, res, next) => {
 
         const [result] = await connection.execute(
             'INSERT INTO reservations (experienceId, userId, experienceDate, numberOfPeople, status) VALUES (?, ?, ?, ?, "pending")',
-            [experienceId, userId, experienceDate, Number(numberOfPeople)]
+            [experienceId, userId, formattedDate, Number(numberOfPeople)]
         );
 
         await connection.commit();

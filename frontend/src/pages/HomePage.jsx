@@ -1,13 +1,44 @@
-import React, { useState, useContext } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import React, { useState, useContext, useEffect } from "react";
 import "./HomePage.css";
 import { Link } from "react-router-dom";
 import ThemeContext from "../context/ThemeContext";
 import { useAuth } from "../context/AuthContext";
+import Slider from "react-slick";
+import { getExperiences } from "../api";
 
 function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useContext(ThemeContext);
   const { user, logout } = useAuth();
+  const [experiences, setExperiences] = useState([]);
+
+  useEffect(() => {
+    // Usamos la función modular para obtener experiencias
+    getExperiences()
+      .then((data) => setExperiences(data))
+      .catch(() => setExperiences([]));
+  }, []);
+
+  // Configuración del carrusel
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 600,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
 
   return (
     <>
@@ -53,15 +84,6 @@ function HomePage() {
                 logout();
                 setMenuOpen(false);
               }}
-              style={{
-                background: "none",
-                border: "none",
-                color: "inherit",
-                font: "inherit",
-                cursor: "pointer",
-                padding: 0,
-                marginLeft: "16px"
-              }}
             >
               Cerrar sesión
             </button>
@@ -78,7 +100,12 @@ function HomePage() {
           to="/profile"
           className="mini-avatar"
           aria-label="Ir a perfil"
-          style={{ border: "none", background: "none", padding: 0, cursor: "pointer" }}
+          style={{
+            border: "none",
+            background: "none",
+            padding: 0,
+            cursor: "pointer",
+          }}
         >
           <img
             src="/avatar.png"
@@ -88,7 +115,13 @@ function HomePage() {
         </Link>
         <button
           onClick={toggleTheme}
-          style={{ fontSize: "1.2em", marginLeft: "16px", background: "none", border: "none", cursor: "pointer" }}
+          style={{
+            fontSize: "1.2em",
+            marginLeft: "16px",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+          }}
           aria-label="Cambiar modo oscuro"
         >
           {theme === "light" ? "🌙" : "☀️"}
@@ -99,36 +132,37 @@ function HomePage() {
         <div className="hero-text">
           <h1>Vive Experiencias Únicas</h1>
           <p>Descubre aventuras inolvidables cerca de ti.</p>
-          <Link to="/experiencias" className="cta-button">
+          <Link to="/experiences" className="cta-button">
             Explorar ahora
           </Link>
         </div>
       </header>
 
       <section id="experiencias" className="experiences">
-        <h2>Experiencias Destacadas</h2>
-        <div className="cards">
-          <div className="card">
-            <img src="" alt="Montaña" />
-            <h3>Aventura en la montaña</h3>
-            <p>Senderismo y naturaleza para recargar energía.</p>
-          </div>
-          <div className="card">
-            <img src="" alt="Cocina" />
-            <h3>Cocina tradicional</h3>
-            <p>Aprende a cocinar con ingredientes locales.</p>
-          </div>
-          <div className="card">
-            <img src="" alt="Kayak" />
-            <h3>Kayak al atardecer</h3>
-            <p>Explora la costa desde el agua mientras se pone el sol.</p>
-          </div>
+        <h2>Experiencias más solicitadas</h2>
+        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+          {experiences.length > 0 ? (
+            <Slider {...settings}>
+              {experiences.map((exp) => (
+                <div key={exp._id || exp.id} className="card">
+                  <img
+                    src={exp.image || "/default-experience.jpg"}
+                    alt={exp.title}
+                  />
+                  <h3>{exp.title}</h3>
+                  <p>{exp.description}</p>
+                </div>
+              ))}
+            </Slider>
+          ) : (
+            <p>No hay experiencias para mostrar.</p>
+          )}
         </div>
       </section>
 
       <section className="cta-final">
         <h2>¿Listo para tu próxima aventura?</h2>
-        <Link to="/experiencias" className="cta-button">
+        <Link to="/experiences" className="cta-button">
           Empezar ahora
         </Link>
       </section>

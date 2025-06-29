@@ -1,31 +1,54 @@
-
-
 body {
   background: linear-gradient(120deg, #fff 60%, #0077cc11 100%);
   min-height: 100vh;
   font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .register-container {
+  width: 400px;
+  min-width: 320px;
   max-width: 420px;
-  margin: 48px auto 0 auto;
-  padding: 36px 32px 28px 32px;
+  margin: 48px auto;
+  padding: 40px 36px 32px 36px;
   background: #fff;
   border-radius: 28px;
-  box-shadow: 0 8px 32px 0 #0077cc22;
+  box-shadow: 0 12px 40px 0 #0077cc22, 0 2px 8px 0 #ff5a5f11;
   position: relative;
-  animation: floaty 3s ease-in-out infinite;
   border: 2.5px solid #ff5a5f22;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.register-container::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 8px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ff5a5f 0%, #0077cc 100%);
+  opacity: 0.8;
 }
 
 .register-title {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   font-size: 2.2rem;
   color: #ff5a5f;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-shadow: 0 2px 8px #0077cc22;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 12px #0077cc22;
+  background: linear-gradient(90deg, #ff5a5f 60%, #0077cc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   animation: popin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
@@ -44,139 +67,139 @@ body {
 }
 
 .register-form {
-  margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #0077cc11;
+  padding: 0 0 8px 0;
 }
 
 .form-label {
-  display: block;
-  margin-bottom: 7px;
   font-weight: bold;
   color: #0077cc;
   letter-spacing: 0.5px;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
+  margin-bottom: 2px;
+  margin-top: 8px;
 }
 
 .form-input {
   width: 100%;
-  padding: 11px;
+  padding: 12px;
   border: 2px solid #0077cc;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 17px;
   background: #fff;
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
+  box-shadow: 0 1px 6px #0077cc11;
+  margin-bottom: 2px;
 }
 
 .form-input:focus {
   border-color: #ff5a5f;
   box-shadow: 0 0 0 2px #ff5a5f33;
-  animation: input-glow 0.5s;
-}
-
-@keyframes input-glow {
-  0% {
-    box-shadow: 0 0 0 0 #ff5a5f33;
-  }
-  100% {
-    box-shadow: 0 0 0 2px #ff5a5f33;
-  }
 }
 
 .register-button {
   width: 100%;
-  padding: 13px;
+  max-width: 340px;
+  padding: 20px 0;
   background: linear-gradient(90deg, #ff5a5f 0%, #0077cc 100%);
   color: #fff;
   border: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 700;
+  border-radius: 14px;
+  font-size: 1.5rem;
+  font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 2px 8px 0 #0077cc22;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
-  margin-top: 8px;
-  letter-spacing: 0.5px;
+  box-shadow: 0 6px 24px 0 #0077cc22, 0 2px 8px 0 #ff5a5f22;
+  transition: background 0.2s, color 0.2s, transform 0.15s, box-shadow 0.2s;
+  margin-top: 16px;
+  letter-spacing: 1px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-button:after {
+  content: "";
+  position: absolute;
+  left: -40%;
+  top: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, #fff8, #ff5a5f44 60%, #0077cc44 100%);
+  transform: skewX(-20deg);
+  transition: left 0.4s;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.register-button:hover:after {
+  left: 110%;
 }
 
 .register-button:disabled {
   background: #ccc;
   color: #888;
   cursor: not-allowed;
+  box-shadow: none;
 }
 
 .register-button:hover:not(:disabled) {
   background: linear-gradient(90deg, #fff 0%, #ff5a5f 100%);
   color: #ff5a5f;
   border: 2px solid #ff5a5f;
-  transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 24px 0 #0077cc22, 0 4px 12px 0 #ff5a5f22;
+}
+
+.error-message,
+.success-message {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px 0 #ff5a5f22;
 }
 
 .error-message {
   background-color: #ff5a5f22;
   color: #ff5a5f;
-  padding: 12px;
-  border-radius: 8px;
-  text-align: center;
-  margin-top: 18px;
-  font-size: 1rem;
-  box-shadow: 0 2px 8px 0 #ff5a5f22;
-  animation: shake 0.4s;
-}
-
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  20% {
-    transform: translateX(-6px);
-  }
-  40% {
-    transform: translateX(6px);
-  }
-  60% {
-    transform: translateX(-4px);
-  }
-  80% {
-    transform: translateX(4px);
-  }
-  100% {
-    transform: translateX(0);
-  }
 }
 
 .success-message {
   background-color: #0077cc22;
   color: #0077cc;
-  padding: 12px;
-  border-radius: 8px;
-  text-align: center;
-  margin-top: 18px;
-  font-size: 1rem;
-  box-shadow: 0 2px 8px 0 #0077cc22;
-  animation: popin 0.6s;
 }
-
-@keyframes floaty {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
 
 .register-links {
   text-align: center;
-  margin-top: 24px;
+  margin-top: 18px;
   font-size: 1rem;
+  width: 100%;
+  max-width: 340px;
 }
 
 .register-links a {
@@ -184,24 +207,34 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
 }
 
 .register-links a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: #ff5a5f;
+  border-bottom: 2px solid #ff5a5f;
 }
 
-
-.register-container::before {
-  content: "";
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 6px;
-  border-radius: 6px;
-  background: linear-gradient(90deg, #ff5a5f 0%, #0077cc 100%);
-  opacity: 0.7;
-  animation: floaty 3s ease-in-out infinite;
+@media (max-width: 600px) {
+  .register-container {
+    width: 98vw;
+    min-width: unset;
+    max-width: 98vw;
+    padding: 18px 6px 18px 6px;
+    border-radius: 0;
+  }
+  .register-title {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+  .form-group,
+  .register-button,
+  .error-message,
+  .success-message,
+  .register-links {
+    max-width: 100%;
+    width: 100%;
+  }
 }

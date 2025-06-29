@@ -12,7 +12,6 @@ body {
   border-radius: 22px;
   box-shadow: 0 8px 32px 0 #0077cc22;
   position: relative;
-  animation: floaty 3s ease-in-out infinite;
 }
 
 .login-title {
@@ -116,14 +115,12 @@ body {
   margin-top: 50px;
 }
 
-
 .login-benefits {
   background: linear-gradient(90deg, #fff 0%, #0077cc11 100%);
   border-radius: 18px;
   box-shadow: 0 4px 18px 0 #0077cc15;
   padding: 24px 28px 18px 28px;
   margin-bottom: 28px;
-  animation: floaty 3s ease-in-out infinite;
   transition: box-shadow 0.3s;
 }
 
@@ -164,16 +161,4 @@ body {
   font-size: 1.1em;
   color: #ff5a5f;
   transition: transform 0.2s;
-}
-
-@keyframes floaty {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
 }

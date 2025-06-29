@@ -46,15 +46,14 @@ const RegisterPage = () => {
 
     if (Object.keys(formErrors).length === 0) {
       try {
-        
         //JSON
         const dataToSend = {
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
-          password: formData.password
+          password: formData.password,
         };
-        
+
         //FORM DATA --> PARA CUANDO MEtamos imagens y cambiemos el backend
         // const formDataToSend = new FormData();
         // formDataToSend.append("firstName", formData.firstName);
@@ -69,7 +68,7 @@ const RegisterPage = () => {
           method: "POST",
           //JSON
           headers: {
-            'Content-Type': 'application/json', 
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(dataToSend),
           //body: formDataToSend,
@@ -216,9 +215,7 @@ const RegisterPage = () => {
           <div className="error-message">{errors.general}</div>
         )}
 
-        <button type="submit" className="register-button">
-          Registrarse
-        </button>
+        <button className="register-button">Registrarse</button>
       </form>
       {successMessage && (
         <div className="success-message">{successMessage}</div>

@@ -1,5 +1,3 @@
-
-
 body {
   background: linear-gradient(120deg, #fff 60%, #0077cc11 100%);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -88,7 +86,6 @@ body {
   transform: translateY(-2px) scale(1.03);
 }
 
-
 .reservations-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -104,6 +101,38 @@ body {
   text-align: center;
   border: 2px solid #ff5a5f22;
   animation: floaty 3s ease-in-out infinite;
+}
+
+.stat-card,
+.reservation-card {
+  width: 340px;
+  min-width: 340px;
+  max-width: 340px;
+  height: 220px;
+  min-height: 220px;
+  max-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Para móviles, ancho completo */
+@media (max-width: 480px) {
+  .stat-card,
+  .reservation-card {
+    width: 98vw;
+    min-width: unset;
+    max-width: 98vw;
+    height: 180px;
+    min-height: 180px;
+    max-height: 180px;
+  }
 }
 
 .stat-card h3 {
@@ -169,7 +198,6 @@ body {
   transform: translateY(-2px) scale(1.03);
 }
 
-
 .reservations-list {
   display: grid;
   gap: 25px;
@@ -191,7 +219,6 @@ body {
   box-shadow: 0 8px 20px #ff5a5f22;
   border-color: #ff5a5f44;
 }
-
 
 .reservation-image {
   position: relative;
@@ -215,7 +242,6 @@ body {
   font-size: 2rem;
   color: #0077cc;
 }
-
 
 .reservation-content {
   padding: 25px;
@@ -246,7 +272,6 @@ body {
 .experience-title a:hover {
   color: #ff5a5f;
 }
-
 
 .status-badge {
   padding: 6px 12px;
@@ -424,7 +449,6 @@ body {
   transform: translateY(-2px) scale(1.03);
 }
 
-
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -498,7 +522,6 @@ body {
 .modal-body {
   padding: 25px;
 }
-
 
 .rating-form .form-group {
   margin-bottom: 20px;
@@ -605,7 +628,6 @@ body {
   margin-bottom: 20px;
   animation: floaty 3s ease-in-out infinite;
 }
-
 
 @media (max-width: 768px) {
   .reservations-container {

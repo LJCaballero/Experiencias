@@ -9,8 +9,11 @@ body {
 
 .register-container {
   width: 400px;
-  min-width: 320px;
-  max-width: 420px;
+  min-width: 400px;
+  max-width: 400px;
+  height: 420px;
+  min-height: 420px;
+  max-height: 420px;
   margin: 48px auto;
   padding: 40px 36px 32px 36px;
   background: #fff;
@@ -22,6 +25,8 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 18px;
+  overflow: hidden;
+  text-align: center;
 }
 
 .register-container::before {
@@ -173,8 +178,12 @@ body {
 
 .error-message,
 .success-message {
-  width: 100%;
-  max-width: 340px;
+  width: 400px;
+  min-width: 400px;
+  max-width: 400px;
+  height: 420px;
+  min-height: 420px;
+  max-height: 420px;
   margin: 0 auto;
   padding: 12px;
   border-radius: 10px;
@@ -182,6 +191,11 @@ body {
   margin-top: 10px;
   font-size: 1rem;
   box-shadow: 0 2px 8px 0 #ff5a5f22;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .error-message {
@@ -218,12 +232,15 @@ body {
 }
 
 @media (max-width: 600px) {
-  .register-container {
+  .register-container,
+  .error-message,
+  .success-message {
     width: 98vw;
     min-width: unset;
     max-width: 98vw;
-    padding: 18px 6px 18px 6px;
-    border-radius: 0;
+    height: 320px;
+    min-height: 320px;
+    max-height: 320px;
   }
   .register-title {
     font-size: 1.5rem;

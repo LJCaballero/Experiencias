@@ -1,4 +1,3 @@
-
 body {
   background: #fff;
   font-family: "Segoe UI", "Roboto", Arial, sans-serif;
@@ -88,7 +87,6 @@ body {
   }
 }
 
-
 .action-buttons {
   display: flex;
   flex-direction: column;
@@ -155,7 +153,6 @@ body {
   color: #fff;
   transform: translateY(-2px) scale(1.03);
 }
-
 
 .modal-overlay {
   position: fixed;
@@ -248,7 +245,7 @@ body {
   color: #ff5a5f;
 }
 
-/* Formulario de reserva en modal */
+
 .reservation-form .form-group {
   margin-bottom: 20px;
 }
@@ -336,6 +333,31 @@ body {
 .btn-cancel:hover:not(:disabled) {
   background-color: #ff5a5f;
   color: #fff;
+}
+
+
+.experience-card,
+.reservation-summary {
+  width: 320px; 
+  height: 180px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+@media (max-width: 480px) {
+  .experience-card,
+  .reservation-summary {
+    width: 100%;
+    height: 140px;
+  }
 }
 
 @media (max-width: 768px) {
